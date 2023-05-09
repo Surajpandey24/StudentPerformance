@@ -332,13 +332,13 @@ class StructureTestCase(unittest.TestCase):
         cls, msg = self.get_except(Person, b"Someone", (1, 2))
         self.assertEqual(cls, RuntimeError)
         self.assertEqual(msg,
-                             "(Phone) TypeError: "
+                             "(Phone) <class 'TypeError'>: "
                              "expected bytes, int found")
 
         cls, msg = self.get_except(Person, b"Someone", (b"a", b"b", b"c"))
         self.assertEqual(cls, RuntimeError)
         self.assertEqual(msg,
-                             "(Phone) TypeError: too many initializers")
+                             "(Phone) <class 'TypeError'>: too many initializers")
 
     def test_huge_field_name(self):
         # issue12881: segfault with large structure field names
